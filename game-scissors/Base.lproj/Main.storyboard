@@ -42,7 +42,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <state key="normal" title="✌️"/>
                                 <connections>
-                                    <action selector="paperBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kws-rw-RbC"/>
                                     <action selector="scissorsBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rlf-hz-KKj"/>
                                 </connections>
                             </button>

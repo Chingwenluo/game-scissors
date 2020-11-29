@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     @IBOutlet weak var gamePlayerLabel: UILabel!
@@ -37,11 +38,41 @@ class ViewController: UIViewController {
         peopleloseLabel.text = "\(peoplelose)"
         computerwinLabel.text = "\(computerwin)"
     }
+   
+    func speek(){
+        if computerPlayerView.image == UIImage(named: "rock"){
+            let speechUtterance = AVSpeechUtterance(string: "石頭")
+            speechUtterance.voice = AVSpeechSynthesisVoice(language: "zh-TW")
+            speechUtterance.rate = 0.5
+            speechUtterance.postUtteranceDelay = 50
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(speechUtterance)
+     
+        } else if computerPlayerView.image == UIImage(named: "scissors"){
+            let speechUtterance = AVSpeechUtterance(string: "剪刀")
+            speechUtterance.voice = AVSpeechSynthesisVoice(language: "zh-TW")
+            speechUtterance.rate = 0.5
+            speechUtterance.postUtteranceDelay = 50
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(speechUtterance)
+        } else if computerPlayerView.image == UIImage(named: "paper"){
+            let speechUtterance = AVSpeechUtterance(string: "布")
+            speechUtterance.voice = AVSpeechSynthesisVoice(language: "zh-TW")
+            speechUtterance.rate = 0.5
+            speechUtterance.postUtteranceDelay = 50
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(speechUtterance)
+        }
+        
+        }
+    
+    
     
     @IBAction func rockBtn(_ sender: Any) {
   
-      
+     
         computerPlayerView.image = UIImage(named:computer.randomElement()!)
+        speek()
         gamePlayerLabel.text = game[0]
         if gamePlayerLabel.text == game[0] , computerPlayerView.image == UIImage(named: "scissors") {
             resultLabel.text = "win"
@@ -61,7 +92,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func scissorsBtn(_ sender: Any) {
+      
         computerPlayerView.image = UIImage(named: computer.randomElement()!)
+        speek()
         gamePlayerLabel.text = game[1]
         
         if gamePlayerLabel.text == game[1] , computerPlayerView.image == UIImage(named: "scissors") {
@@ -82,7 +115,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func paperBtn(_ sender: Any) {
+     
         computerPlayerView.image = UIImage(named: computer.randomElement()!)
+        speek()
         gamePlayerLabel.text = game[2]
         
         if gamePlayerLabel.text == game[2] , computerPlayerView.image == UIImage(named: "scissors") {
