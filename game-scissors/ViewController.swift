@@ -59,8 +59,6 @@ class ViewController: UIViewController {
     
     }
     
-   
-    
     
     @IBAction func scissorsBtn(_ sender: Any) {
         computerPlayerView.image = UIImage(named: computer.randomElement()!)
